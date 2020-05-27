@@ -19,45 +19,52 @@
 	<div class="w-full mx-auto bg-white rounded-lg shadow p-8">
 		<h1 class="text-3xl font-bold">Pi Calculator</h1>
 		<div class="flex mt-5">
-			<div class="w-1/2">
+			<div class="md:w-1/2 w-full">
 				<svg height="500" width="500" id="polygon"></svg>
 			</div>
-			<div class="w-1/2">
+			<div class="md:w-1/2 w-full">
+
 				<div class="mb-3">
 					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Number of Sides</label>
+						<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Number of Sides</label>
 						<div class="text-gray-600 text-xs mt-2">sides</div>
 					</div>
-					<input id="sideCount" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" type="number" value="5" min="4">
+					<div class="flex">
+						<button id="decrement" class="w-1/6 bg-gray-800 hover:bg-gray-900 text-2xl text-white rounded mr-2"> - </button>
+						<input id="sideCount" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-4/6 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" type="number" value="5" min="4">
+						<button id="increment" class="w-1/6 bg-gray-800 hover:bg-gray-900 text-2xl text-white rounded ml-2"> + </button>
+					</div>
 				</div>
 
 				<div class="mb-3">
 					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Angle</label>
+						<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Angle</label>
 						<div class="text-gray-600 text-xs mt-2">angle = 360/sides</div>
 					</div>
 					<input id="angle" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
 				</div>
 
-				<div class="mb-3">
-					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Inside</label>
-						<div class="text-gray-600 text-xs mt-2">inside = sin(angle / 2) * sides</div>
+				<div class="flex">
+					<div class="md:w-1/2 w-full mb-3 mr-2">
+						<div class="flex justify-between">
+							<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Inside</label>
+							<div class="text-gray-600 text-xs mt-2">inside = sin(angle / 2) * sides</div>
+						</div>
+						<input id="inside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
 					</div>
-					<input id="inside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
+
+					<div class="md:w-1/2 w-full mb-3 ml-2">
+						<div class="flex justify-between">
+							<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Outside</label>
+							<div class="text-gray-600 text-xs mt-2">outside = tan(angle / 2) * sides</div>
+						</div>
+						<input id="outside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
+					</div>
 				</div>
 
 				<div class="mb-3">
 					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Outside</label>
-						<div class="text-gray-600 text-xs mt-2">outside = tan(angle / 2) * sides</div>
-					</div>
-					<input id="outside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
-				</div>
-
-				<div class="mb-3">
-					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Pi Guess</label>
+						<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Pi Guess</label>
 						<div class="text-gray-600 text-xs mt-2">pi_guess = (inside + outside) / 2</div>
 					</div>
 					<input id="piGuess" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
@@ -65,7 +72,7 @@
 
 				<div class="mb-3">
 					<div class="flex justify-between">
-						<label class="block text-sm text-gray-800 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Accuracy</label>
+						<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Accuracy</label>
 						<div class="text-gray-600 text-xs mt-2">accuracy = (1 - (pi_guess - pi) / pi) * 100</div>
 					</div>
 					<input id="accuracy" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
@@ -93,6 +100,21 @@ const insideInput = document.getElementById("inside");
 const outsideInput = document.getElementById("outside");
 const piGuessInput = document.getElementById("piGuess");
 const accuracyInput = document.getElementById("accuracy");
+
+const increment = document.getElementById("increment")
+const decrement = document.getElementById("decrement")
+
+increment.onclick = function() {
+	countInput.value = Number(countInput.value) + 1;
+	countInput.onchange();
+}
+
+decrement.onclick = function() {
+	if (Number(countInput.value) == 4)
+		return;
+	countInput.value = Number(countInput.value) - 1;
+	countInput.onchange();
+}
 
 countInput.onchange = () => {
 	let sides = Number(countInput.value);
