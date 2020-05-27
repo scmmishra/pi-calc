@@ -4,26 +4,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Polygon</title>
-	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/build/tailwind.css">
 	<script src="https://unpkg.com/snapsvg@0.5.1/dist/snap.svg.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
-	<style>
-		@import url('https://rsms.me/inter/inter.css');
-		html { font-family: 'Inter', sans-serif; }
-		@supports (font-variation-settings: normal) {
-		  html { font-family: 'Inter var', sans-serif; }
-		}
-	</style>
 </head>
-<body class="container mt-12 mx-auto bg-gray-200">
+<body class="container mt-12 mx-auto bg-gray-200 px-2">
 	<div class="w-full mx-auto bg-white rounded-lg shadow p-8">
 		<h1 class="text-3xl font-bold">Pi Calculator</h1>
-		<div class="flex mt-5">
+		<div class="flex flex-wrap mt-5">
 			<div class="md:w-1/2 w-full">
-				<svg height="500" width="500" id="polygon"></svg>
+				<svg class="mx-auto" height="450" width="350" id="polygon"></svg>
 			</div>
 			<div class="md:w-1/2 w-full">
-
 				<div class="mb-3">
 					<div class="flex justify-between">
 						<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Number of Sides</label>
@@ -44,21 +35,21 @@
 					<input id="angle" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
 				</div>
 
-				<div class="flex">
-					<div class="md:w-1/2 w-full mb-3 mr-2">
-						<div class="flex justify-between">
+				<div class="flex flex-wrap">
+					<div class="md:w-1/2 w-full mb-3">
+						<div class="flex justify-between md:mr-2">
 							<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Inside</label>
 							<div class="text-gray-600 text-xs mt-2">inside = sin(angle / 2) * sides</div>
 						</div>
-						<input id="inside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
+						<input id="inside" class="md:mr-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
 					</div>
 
-					<div class="md:w-1/2 w-full mb-3 ml-2">
-						<div class="flex justify-between">
+					<div class="md:w-1/2 w-full mb-3">
+						<div class="flex justify-between md:ml-2">
 							<label class="block text-sm text-gray-600 mb-1 md:mb-0 pr-4 mt-2" for="inline-full-name">Outside</label>
 							<div class="text-gray-600 text-xs mt-2">outside = tan(angle / 2) * sides</div>
 						</div>
-						<input id="outside" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
+						<input id="outside" class="md:ml-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" id="inline-full-name" disabled type="text">
 					</div>
 				</div>
 
@@ -84,7 +75,7 @@
 <script>
 let snap = Snap("#polygon");
 
-const BASE_RADIUS = 150;
+const BASE_RADIUS = 120;
 
 function sinDegrees(angleDegrees) {
 	return Math.sin((angleDegrees * Math.PI) / 180);
@@ -166,15 +157,15 @@ function getPolgonPaths(radius, sides) {
 
 	let paths = [];
 	for (i = 0; i < sides; i++) {
-		paths.push(radius * Math.cos((2 * Math.PI * i) / sides) + 250);
-		paths.push(radius * Math.sin((2 * Math.PI * i) / sides) + 250);
+		paths.push(radius * Math.cos((2 * Math.PI * i) / sides) + 170);
+		paths.push(radius * Math.sin((2 * Math.PI * i) / sides) + 200);
 	}
 
 	return paths;
 }
 
 function makeCircle() {
-	window.circle = snap.circle(250, 250, BASE_RADIUS);
+	window.circle = snap.circle(170, 200, BASE_RADIUS);
 	circle.attr({
 		fill: "#C3DAFE",
 	});

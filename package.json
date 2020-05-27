@@ -1,5 +1,25 @@
 {
+  "name": "Pi-Calc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "postcss css/tailwind.css -o public/build/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scmmishra/worldscutestcto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scmmishra/worldscutestcto/issues"
+  },
+  "homepage": "https://github.com/scmmishra/worldscutestcto#readme",
   "dependencies": {
-    "tailwindcss": "^1.4.6"
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.1",
+    "postcss-cli": "^6.1.2",
+    "tailwindcss": "^1.0.4"
   }
 }
